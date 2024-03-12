@@ -1,0 +1,19 @@
+<body>
+<div *ngIf="visible">
+<div *ngFor="let user of users">
+  <div>სახელი: {{user.firstName}}</div>
+  <div>გვარი: {{user.lastName}}</div>
+  <div>ID: {{user.id}}</div>
+  <div>გვარი: {{user.role}}</div>
+  <div [ngSwitch]="user.role">
+    <div *ngSwitchCase="userRole.Admin">თქვენ ხართ ადმინი </div>
+    <div *ngSwitchCase="userRole.User">თქვენ ხართ User</div>
+  </div>
+
+  <div *ngIf="user.role == roleAdmin">
+    <button (click)="Delete()">წაშლა</button>
+  </div>
+</div>
+  <div [ngStyle]="{color: isActive? 'green' : 'red', fontSize: '40px'}">Active</div>
+  <button (click)="Activate()">{{isActive? 'deactivated' : 'activated'}}</button>
+</div></body>
